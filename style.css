@@ -25,7 +25,7 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--cream);
+    background: var(--light-cream);
     color: var(--dark);
     line-height: 1.6;
     overflow-x: hidden;
@@ -95,24 +95,24 @@ body {
     display: none;
 }
 
-.hamburger {
+.menu-icon {
     display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
 }
  
-.hamburger span {
+.menu-icon span {
     width: 25px;
     height: 3px;
     background: var(--white);
     transition: var(--transition);
 }
 
-/* HERO */
-.hero {
+/* MAIN */
+.main {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('ProjectWeb_coffee-store/Image/background.jpg') center/cover no-repeat;
     display: flex;
@@ -122,7 +122,7 @@ body {
     color: var(--white);
 }
 
-.hero-overlay {
+.main-overlay {
     position: absolute;
     top: 0; 
     left: 0;
@@ -132,29 +132,29 @@ body {
     z-index: 1;
 }
 
-.hero-content {
+.main-content {
     position: relative;
     z-index: 2;
     max-width: 800px;
     padding: 0 20px;
 }
 
-.hero-content h1 {
+.main-content h1 {
     font-size: 56px;
     margin-bottom: 20px;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.hero-content p {
+.main-content p {
     font-size: 22px;
     margin-bottom: 40px;
     color: var(--latte);
     font-weight: 300;
 }
 
-/* HERO BUTTONS */
-.hero-buttons {
+/* MAIN BUTTONS */
+.main-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -387,22 +387,20 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 30px;
+    align-items: stretch;
 }
 
 .bean-type {
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
     padding: 12px;
 
     display: flex;
     flex-direction: column;
+    height: 100%;
 
-    min-height: 0px; /* FORCE SAME HEIGHT */
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -411,22 +409,11 @@ body {
     box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
-
-.bean-type.arabica {
-    border-top: 3px solid #8B4513;
-}
-
-.bean-type.robusta {
-    border-top: 3px solid #654321;
-}
-
-.bean-type.liberica {
-    border-top: 3px solid #A0522D;
-}
-
-.bean-type.excelsa {
-    border-top: 3px solid #D2691E;
-}
+/* Bean top colors */
+.bean-type.arabica { border-top: 3px solid #8B4513; }
+.bean-type.excelsa { border-top: 3px solid #D2691E; }
+.bean-type.robusta { border-top: 3px solid #654321; }
+.bean-type.liberica { border-top: 3px solid #A0522D; }
 
 .bean-header {
     margin-bottom: 20px;
@@ -468,17 +455,13 @@ body {
     width: 100%;
     height: 130px;
     object-fit: cover;
-    margin-bottom: 6px;
 }
 
-.bean-shape p {
-    color: var(--text-light);
-    font-size: 13px;
-    font-style: italic;
-}
-
+/* DETAILS */
 .bean-details {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .detail-row {
@@ -488,10 +471,6 @@ body {
     margin-bottom: 12px;
 }
 
-.detail-row:last-child {
-    margin-bottom: 0;
-}
-
 .detail-item {
     display: flex;
     align-items: flex-start;
@@ -499,16 +478,12 @@ body {
     padding: 10px;
     background: var(--light-cream);
     border-radius: 6px;
-    transition: var(--transition);
+    transition: 0.3s ease;
 }
 
 .detail-item:hover {
     background: var(--cream);
     transform: translateX(4px);
-}
-
-.detail-item.full-width {
-    grid-column: 1 / -1;
 }
 
 .detail-item i {
@@ -530,11 +505,9 @@ body {
     line-height: 1.3;
 }
 
+/* PRICE - FIXED POSITION */
 .bean-price {
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+    margin-top: auto;
     padding-top: 15px;
     border-top: 1px solid var(--cream);
 }
@@ -543,30 +516,26 @@ body {
     font-size: 22px;
     font-weight: 700;
     color: var(--dark);
-    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .buy-bean-btn {
     display: block;
     background: var(--dark);
     color: var(--white);
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    transition: var(--transition);
     font-size: 13px;
+    transition: 0.3s ease;
+    text-align: center;
 }
 
 .buy-bean-btn:hover {
     background: var(--latte);
-    color: var(--white);
     transform: translateY(-2px);
-}
-
-/* CONTACT SECTION - Reverted to simple style */
-.contact-section {
-    background: var(--white);
 }
 
 .about-box {
@@ -609,7 +578,7 @@ body {
 }
 
 .contact-item {
-    background: var(--light-cream);
+    background: var(--cream);
     padding: 25px;
     border-radius: 10px;
     text-align: left;
@@ -819,11 +788,11 @@ body {
         height: 400px;
     }
     
-    .hero-content h1 {
+    .main-content h1 {
         font-size: 42px;
     }
     
-    .hero-content p {
+    .main-content p {
         font-size: 20px;
     }
 }
@@ -833,7 +802,7 @@ body {
         padding: 15px 20px;
     }
     
-    .hamburger {
+    .menu-icon {
         display: flex;
     }
     
@@ -870,7 +839,7 @@ body {
         gap: 15px;
     }
     
-    .hero-buttons {
+    .main-buttons {
         flex-direction: column;
         align-items: center;
     }
@@ -903,26 +872,21 @@ body {
 }
 
 @media (max-width: 480px) {
-    .hero-content h1 {
+    .main-content h1 {
         font-size: 32px;
     }
-    
-    .hero-content p {
+    .main-content p {
         font-size: 18px;
     }
-    
     .section-title h2 {
         font-size: 28px;
     }
-    
     .card-container {
         grid-template-columns: 1fr;
     }
-    
     .about-box h2 {
         font-size: 32px;
     }
-    
     .footer {
         padding: 40px 20px 20px;
     }
